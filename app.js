@@ -19,7 +19,7 @@ app.use(express.static(__dirname+'/views'))
 var dokter = require('./routers/dokter')
 var pasien = require('./routers/pasien')
 var diagnosis = require('./routers/diagnosis')
-var user = require('./routers/diagnosis')
+var user = require('./routers/user')
 var index = require('./routers/index')
 
 //route
