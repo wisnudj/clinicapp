@@ -7,75 +7,116 @@
   <link rel="stylesheet" href="assets/style/bulma.min.css" type="text/css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/style/custom.css" type="text/css">
-  <title>User</title>
+  <link rel="stylesheet" href="assets/style/buefy.min.css">
+  <script src="assets/js/myScripts.js"></script>
+  <script src="assets/js/buefy-min.js"></script>
+  <title><%=title%></title>
 </head>
 <body>
+    <% include assets/partials/top-nav %>
 
-  <div style="text-align:left; margin-bottom:25px;">
-        <H1 style="margin-bottom:13px;">All Users Data</H1>
-        <!-- -->
+    <!-- hero -->
+    <section class="hero is-primary is-bold">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Welcome to Clinic Plus
+          </h1>
+          <h2 class="subtitle">
+            I hope you are having a great day!
+          </h2>
+        </div>
       </div>
+    </section>
 
-      <table class="table is-striped">
-        <tr>
-          <th>ID</th>
-          <th>USERNAME</th>
-          <th>PASSWORD</th>
-          <th>ROLE</th>
-          <th>SALT</th>
 
-        </tr>
-        <% for(let data=0; data<data_UsersToEjs.length; data++) {%>
-          <tr>
-            <th>
-              <%= data_UsersToEjs[data].id %>
-            </th>
-            <td>
-              <%= data_UsersToEjs[data].username %>
-            </td>
-            <td>
-              <%= data_UsersToEjs[data].password %>
-            </td>
-            <td style="color:#00d1b2;">
-              <%= data_UsersToEjs[data].role %>
-            </td>
-            <td>
-              <%= data_UsersToEjs[data].salt %>
-            </td>
+    <!-- body -->
+  	<div class="content-body">
+  		<div class=" is-desktop">
+  		  <!-- <div style="border:2px solid red; height:100%;">top</div> -->
+  		</div>
 
-              <th>
+      <div class="columns">
 
-              </th>
-              <td style="margin-left:-5px;">
-                <a class="button is-info is-outlined is-small" href='user/edit/<%=data_UsersToEjs[data].id%>'>
-                  <span>Edit</span>
-                  <span class="icon is-small">
-                    <i class="fa fa-pencil"></i>
-                  </span>
-                </a>
-                <a class="button is-danger is-outlined is-small" href="user/delete/<%=data_UsersToEjs[data].id%>" onclick="myFunction()">
-                  <span>Delete</span>
-                  <span class="icon is-small">
-                    <i class="fa fa-times"></i>
-                  </span>
-                </a>
-              </td>
-          </tr>
-          <%}%>
-      </table>
+        <% include assets/partials/menu-panel %>
 
-      <div style="text-align:left; margin-top:35px;">
-        <a class="button is-outlined" href='/user/add'>add User</a>
+
+        <!-- right coloumn -->
+        <div style="margin-left: 18%;" class="column ">
+          <div style="a:2px; text-align:left; margin-bottom:25px;">
+            <% include assets/partials/menu-nav %>
+            <!-- this content -->
+
+            <!-- table -->
+            <table style="width:100%; margin-top:12px;" class="table is-striped">
+              <tr>
+                <th>ID</th>
+                <th>USERNAME</th>
+                <th>PASSWORD</th>
+                <th>ROLE</th>
+                <th>SALT</th>
+
+              </tr>
+              <% for(let data=0; data<data_UsersToEjs.length; data++) {%>
+                <tr>
+                  <th>
+                    <%= data_UsersToEjs[data].id %>
+                  </th>
+                  <td>
+                    <%= data_UsersToEjs[data].username %>
+                  </td>
+                  <td>
+                    <%= data_UsersToEjs[data].password %>
+                  </td>
+                  <td style="color:#00d1b2;">
+                    <%= data_UsersToEjs[data].role %>
+                  </td>
+                  <td>
+                    <%= data_UsersToEjs[data].salt %>
+                  </td>
+
+                    <th>
+
+                    </th>
+                    <td style="margin-left:-5px;">
+                      <a class="button is-info is-outlined is-small" href='user/edit/<%=data_UsersToEjs[data].id%>'>
+                        <span>Edit</span>
+                        <span class="icon is-small">
+                          <i class="fa fa-pencil"></i>
+                        </span>
+                      </a>
+                      <a class="button is-danger is-outlined is-small" href="user/delete/<%=data_UsersToEjs[data].id%>" onclick="myFunction()">
+                        <span>Delete</span>
+                        <span class="icon is-small">
+                          <i class="fa fa-times"></i>
+                        </span>
+                      </a>
+                    </td>
+                </tr>
+                <%}%>
+            </table>
+
+            <div style="text-align:left; margin-top:35px;">
+             <a class="button is-outlined" href='/user/add'>add user</a>
+           </div>
+
+
+            <!-- this content -->
+          </div>
+        </div>
       </div>
+      <!-- body-left-right -->
 
-      <script>
-        function myFunction() {
-          confirm("are you sure?!");
-          swal({
-            icon: "success",
-          });
-        }
-      </script>
-
+  	</div>
+    <% include assets/partials/footer %>
+    <script>
+      function myFunction() {
+        confirm("are you sure?!");
+        // swal ( "Oops" ,  "Something went wrong!" ,  "error" )
+        swal({
+          icon: "success",
+        });
+      }
+    </script>
 </body>
 </html>
