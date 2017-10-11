@@ -1,16 +1,84 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title><%=title%></title>
-  </head>
-  <body>
-    <h1><%=title%></h1>
-    <form action="/dokter/edit/<%=data_DokterToEjs.id%>" method="post">
-      <input type="input" name="name" value="<%=data_DokterToEjs.name%>">
-      <input type="input" name="spesialis" value="<%=data_DokterToEjs.spesialis%>">
-      <input type="input" name="jeniskelamin" value="<%=data_DokterToEjs.jeniskelamin%>">
-      <input type="submit" value="submit">
-    </form>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../assets/style/bulma.min.css" type="text/css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../../assets/style/custom.css" type="text/css">
+  <title>User</title>
+</head>
+<body>
+
+  <div style="margin:auto; width: 50%;">
+      <!-- <H1 style="text-align: center;">ADD TEACHER</H1> -->
+      <div style="text-align: center; margin-top:22px;">
+        <p class="title is-2">Edit Dokter</p>
+        <p class="subtitle is-5">input name, specialis and jenis kelamin</p>
+      </div>
+
+        <div style="margin-top: 10%;">
+        <form action="/dokter/edit/<%=data_DokterToEjs.id%>" method="post">
+          <div class="field">
+            <label class="label">Full Name</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input is-medium" type="text" value="<%=data_DokterToEjs.name%>" name="name">
+              <span class="icon is-small is-left">
+                <i class="fa fa-user"></i>
+              </span>
+            </div>
+          </div>
+          <div class="field">
+							  <label class="label">Spesialis</label>
+							  <div class="control">
+							    <div class="select is-fullwidth">
+							      <select name="spesialis">
+
+                      <option value="Umum">Umum</option>
+							        <option value="Anak">Anak</option>
+							        <option value="Anestesiologi dan Terapi Intensif">Anestesiologi dan Terapi Intensif</option>
+                      <option value="Gizi">Gizi</option>
+                      <option value="Jantung dan Pembuluh Darah">Jantung dan Pembuluh Darah</option>
+                      <option value="Psikiatri">Kedokteran Jiwa atau Psikiatri</option>
+                      <option value="Penyakit Kulit">Penyakit Kulit</option>
+                      <option value="Mata">Mata</option>
+                      <option value="Penyakit Mulut">Penyakit Mulut</option>
+                      <option value="Radiologi">Radiologi</option>
+                      <option value="Saraf">Saraf</option>
+                      <option value="Telinga">Telinga</option>
+                      <option value="Penyakit Dalam">Penyakit Dalam</option>
+                      <option value="Forensik & Medikolegal">Forensik & Medikolegal</option>
+
+							      </select>
+							    </div>
+							  </div>
+						</div>
+          <div class="field">
+							  <label class="label">Jenis Kelamin</label>
+							  <div class="control">
+							    <div class="select is-fullwidth">
+							      <select name="jeniskelamin">
+
+							        <option value="Pria">Pria</option>
+							         <option value="Wanita">Wanita</option>
+
+							      </select>
+							    </div>
+							  </div>
+						</div>
+
+          <div style="text-align: center; margin-top:33px;" class="control">
+            <input class="button is-success is-outlined is-medium" type="submit" value="Submit input">
+            <input class="button is-success is-outlined is-medium" type="reset" value="Reset input">
+          </div>
+        </form>
+
+      </div>
+      <div style="text-align: center;margin-top:5%;">
+        <a style="text-decoration: none;" href="/dokter">show all Dokter</a>
+      </div>
+    </div>
+
+</body>
 </html>

@@ -7,11 +7,28 @@
   <link rel="stylesheet" href="assets/style/bulma.min.css" type="text/css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/style/custom.css" type="text/css">
-  <title>Login</title>
+  <link rel="stylesheet" href="assets/style/buefy.min.css">
+  <script src="assets/js/myScripts.js"></script>
+  <script src="assets/js/buefy-min.js"></script>
+  <title><%=title%></title>
 </head>
 <body>
-
     <% include assets/partials/top-nav %>
+
+    <!-- hero -->
+    <section class="hero is-primary is-bold">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Welcome to Clinic Plus
+          </h1>
+          <h2 class="subtitle">
+            I hope you are having a great day!
+          </h2>
+        </div>
+      </div>
+    </section>
+
 
     <!-- body -->
   	<div class="content-body">
@@ -26,79 +43,20 @@
 
         <!-- right coloumn -->
         <div class="column ">
-
-
           <div style="a:2px; text-align:left; margin-bottom:25px;">
-            <h1 class="title">Welcome to Kinik Plus </h1>
-				    <h4 class="subtitle">I hope you are having a great day!</h4>
-
-            <a style="margin: 1px;" class="button is-primary is-small" href="/">Home</a>
-            <a style="margin: 1px;" class="button is-info is-small" href="/teacher">Teacher</a>
-            <a style="margin: 1px;" class="button is-success is-small" href="/subject">Subject</a>
-            <a style="margin: 1px;" class="button is-warning is-small" href="/students">Students</a>
+            <% include assets/partials/menu-nav %>
+            <!-- this content -->
 
 
-            <!-- table -->
-            <table class="table is-striped">
-              <tr>
-                <th><abbr title="Position">ID</abbr></th>
-                <th>FIRST NAME</th>
-                <th>LAST NAME</th>
-                <th>EMAIL</th>
-                <th>ACTION</th>
-                <th>OPTIONS</th>
-
-              </tr>
-
-                <tr>
-                  <th></th>
-                  <td></td>
-                  <td></td>
-                  <td style="color:#00d1b2;"></td>
-                  <td>
-                    <a class="button is-success is-outlined is-small" href='#'>
-                    <span class="icon is-small">
-                      <i class="fa fa-book"></i>
-                    </span>
-                    <span>Add Subject</span>
-                  </a>
-                  </td>
-                  <td style="margin-left:-5px;">
-                    <a class="button is-info is-outlined is-small" href='#'>
-                    <span class="icon is-small">
-                      <i class="fa fa-pencil"></i>
-                    </span>
-                    <span>Edit</span>
-                  </a>
-                    <a onclick="myFunction()" class="button is-danger is-outlined is-small" href="#">
-                    <span class="icon is-small">
-                      <i class="fa fa-times"></i>
-                    </span>
-                    <span>Delete</span>
-                  </a>
-                  </td>
-
-                  </tr>
-            </table>
 
 
+            <!-- this content -->
           </div>
-
-
         </div>
-
-
       </div>
       <!-- body-left-right -->
 
   	</div>
-
-
-
-
     <% include assets/partials/footer %>
-
-
-<script src="assets/js/myScripts.js"></script>
 </body>
 </html>

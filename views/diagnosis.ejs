@@ -7,16 +7,48 @@
   <link rel="stylesheet" href="assets/style/bulma.min.css" type="text/css">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 	<link rel="stylesheet" href="assets/style/custom.css" type="text/css">
-  <title>User</title>
+  <link rel="stylesheet" href="assets/style/buefy.min.css">
+  <script src="assets/js/myScripts.js"></script>
+  <script src="assets/js/buefy-min.js"></script>
+  <title><%=title%></title>
 </head>
 <body>
+    <% include assets/partials/top-nav %>
 
-  <div style="text-align:left; margin-bottom:25px;">
-        <H1 style="margin-bottom:13px;">All Penyakit Data</H1>
-        <!-- -->
+    <!-- hero -->
+    <section class="hero is-primary is-bold">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Welcome to Clinic Plus
+          </h1>
+          <h2 class="subtitle">
+            I hope you are having a great day!
+          </h2>
+        </div>
       </div>
+    </section>
 
-      <table class="table is-striped">
+
+    <!-- body -->
+  	<div class="content-body">
+  		<div class=" is-desktop">
+  		  <!-- <div style="border:2px solid red; height:100%;">top</div> -->
+  		</div>
+
+      <div class="columns">
+
+        <% include assets/partials/menu-panel %>
+
+
+        <!-- right coloumn -->
+        <div class="column ">
+          <div style="a:2px; text-align:left; margin-bottom:25px;">
+            <% include assets/partials/menu-nav %>
+            <!-- this content -->
+
+            <!-- table -->
+            <table class="table is-striped">
         <tr>
           <th>ID</th>
           <th>PENYAKIT</th>
@@ -56,18 +88,27 @@
           <%}%>
       </table>
 
-      <div style="text-align:left; margin-top:35px;">
-        <a class="button is-outlined" href='/diagnosis/add'>add Penyakit</a>
+            <div style="text-align:left; margin-top:35px;">
+             <a class="button is-outlined" href='/diagnosis/add'>add diagnosis</a>
+           </div>
+
+
+            <!-- this content -->
+          </div>
+        </div>
       </div>
+      <!-- body-left-right -->
 
-      <script>
-        function myFunction() {
-          confirm("are you sure?!");
-          swal({
-            icon: "success",
-          });
-        }
-      </script>
-
+  	</div>
+    <% include assets/partials/footer %>
+    <script>
+      function myFunction() {
+        confirm("are you sure?!");
+        // swal ( "Oops" ,  "Something went wrong!" ,  "error" )
+        swal({
+          icon: "success",
+        });
+      }
+    </script>
 </body>
 </html>

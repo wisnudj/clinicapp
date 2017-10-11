@@ -1,32 +1,110 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title><%=title%></title>
-  </head>
-  <body>
-    <h1><%=title%></h1>
-    <table>
-      <tr>
-        <th>id</th>
-        <th>name</th>
-        <th>jenis kelamin</th>
-        <th>usia</th>
-        <th>pekerjaan</th>
-        <th>alamat</th>
-      </tr>
-      <%for(var i = 0; i < data_pasienToEjs.length; i++) {%>
-        <tr>
-          <td><%=data_pasienToEjs[i].id%></td>
-          <td><%=data_pasienToEjs[i].name%></td>
-          <td><%=data_pasienToEjs[i].jeniskelamin%></td>
-          <td><%=data_pasienToEjs[i].usia%></td>
-          <td><%=data_pasienToEjs[i].pekerjaan%></td>
-          <td><%=data_pasienToEjs[i].alamat%></td>
-          <td><a href="/pasien/edit/<%=data_pasienToEjs[i].id%>">edit</a></td>
-          <td><a href="/pasien/delete/<%=data_pasienToEjs[i].id%>">delete</a></td>
-        </tr>
-      <%}%>
-    </table>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="assets/style/bulma.min.css" type="text/css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/style/custom.css" type="text/css">
+  <link rel="stylesheet" href="assets/style/buefy.min.css">
+  <script src="assets/js/myScripts.js"></script>
+  <script src="assets/js/buefy-min.js"></script>
+  <title><%=title%></title>
+</head>
+<body>
+    <% include assets/partials/top-nav %>
+
+    <!-- hero -->
+    <section class="hero is-primary is-bold">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Welcome to Clinic Plus
+          </h1>
+          <h2 class="subtitle">
+            I hope you are having a great day!
+          </h2>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- body -->
+  	<div class="content-body">
+  		<div class=" is-desktop">
+  		  <!-- <div style="border:2px solid red; height:100%;">top</div> -->
+  		</div>
+
+      <div class="columns">
+
+        <% include assets/partials/menu-panel %>
+
+
+        <!-- right coloumn -->
+        <div class="column ">
+          <div style="a:2px; text-align:left; margin-bottom:25px;">
+            <% include assets/partials/menu-nav %>
+            <!-- this content -->
+
+            <!-- table -->
+            <table style="width:100%; margin-top:12px;" class="table is-striped">
+              <tr>
+                <th><abbr title="Position">ID</abbr></th>
+                <th>NAME</th>
+                <th>GENDER</th>
+                <th>USIA</th>
+                <th>PEKERJAAN</th>
+                <th>ADDRESS</th>
+              </tr>
+                <%for(var i = 0; i < data_pasienToEjs.length;i++) {%>
+                <tr>
+                  <th><%=data_pasienToEjs[i].id%></th>
+                  <td>Dr. <%=data_pasienToEjs[i].name%></td>
+                  <td  style="color:#00d1b2;"><%=data_pasienToEjs[i].jeniskelamin%></td>
+                  <td><%=data_pasienToEjs[i].usia%></td>
+                  <td><%=data_pasienToEjs[i].pekerjaan%></td>
+                  <td><%=data_pasienToEjs[i].alamat%></td>
+
+                  <td style="margin-left:-5px;">
+                    <a class="button is-info is-outlined is-small" href='/pasien/edit/<%=data_pasienToEjs[i].id%>'>
+                    <span class="icon is-small">
+                      <i class="fa fa-pencil"></i>
+                    </span>
+                    <span>Edit</span>
+                    </a>
+                    <a onclick="myFunction()" class="button is-danger is-outlined is-small" href="/pasien/delete/<%=data_pasienToEjs[i].id%>">
+                    <span class="icon is-small">
+                      <i class="fa fa-times"></i>
+                    </span>
+                    <span>Delete</span>
+                    </a>
+                  </td>
+                </tr>
+                <%}%>
+            </table>
+
+            <div style="text-align:left; margin-top:35px;">
+             <a class="button is-outlined" href='/pasien/add'>add dokter</a>
+           </div>
+
+
+            <!-- this content -->
+          </div>
+        </div>
+      </div>
+      <!-- body-left-right -->
+
+  	</div>
+    <% include assets/partials/footer %>
+    <script>
+      function myFunction() {
+        confirm("are you sure?!");
+        // swal ( "Oops" ,  "Something went wrong!" ,  "error" )
+        swal({
+          icon: "success",
+        });
+      }
+    </script>
+</body>
 </html>
