@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%=title%></title>
+  </head>
+  <body>
+    <h1><%=title%></h1>
+    <table>
+      <tr>
+        <th>id</th>
+        <th>id Pasien</th>
+        <th>id dokter</th>
+        <th>diagnosis</th>
+        <th>tgl periksa</th>
+        <th>catatan dokter</th>
+      </tr>
+      <%for(var i = 0; i < dataPeriksa_ToEjs.length; i++) {%>
+      <tr>
+        <td><%=dataPeriksa_ToEjs[i].id%></td>
+        <td><%=dataPeriksa_ToEjs[i].PasienId%></td>
+        <td><%=dataPeriksa_ToEjs[i].DokterId%></td>
+        <td><%=dataPeriksa_ToEjs[i].DiagnosisId%></td>
+        <td><%=dataPeriksa_ToEjs[i].tglperiksa%></td>
+        <td><%=dataPeriksa_ToEjs[i].catatandokter%></td>
+      </tr>
+      <%}%>
+    </table>
+  </body>
+</html>

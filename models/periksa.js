@@ -13,5 +13,11 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
+
+  Periksa.associate = (model) => {
+    Periksa.belongsTo(model.Pasien)
+    Periksa.belongsTo(model.Dokter)
+    Periksa.belongsTo(model.Diagnosis)
+  }
   return Periksa;
 };
