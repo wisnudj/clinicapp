@@ -21,6 +21,7 @@ var pasien = require('./routers/pasien')
 var diagnosis = require('./routers/diagnosis')
 var user = require('./routers/user')
 var index = require('./routers/index')
+var periksa = require('./routers/periksa')
 
 //route
 app.use('/', index)
@@ -28,6 +29,7 @@ app.use('/dokter', dokter)
 app.use('/pasien', pasien)
 app.use('/diagnosis', diagnosis)
 app.use('/user', user)
+app.use('/periksa', periksa)
 
 //listen
 app.listen(process.env.PORT || '3000')

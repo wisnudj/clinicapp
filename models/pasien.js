@@ -13,5 +13,11 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
+
+  Pasien.associate = (model) => {
+    Pasien.belongsToMany(model.Dokter, {through: 'Periksa'})
+    Pasien.belongsToMany(model.Diagnosis, {through: 'Periksa'})
+    Pasien.hasMany(model.Periksa)
+  }
   return Pasien;
 };

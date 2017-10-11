@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%=title%></title>
+  </head>
+  <body>
+    <h1><%=title%></h1>
+    <table>
+      <tr>
+        <th>id</th>
+        <th>Nama Pasien</th>
+        <th>Nama Dokter</th>
+        <th>diagnosis</th>
+        <th>tgl periksa</th>
+        <th>catatan dokter</th>
+        <th>Action</th>
+      </tr>
+      <%for(var i = 0; i < dataPeriksa_ToEjs.length; i++) {%>
+      <tr>
+        <td><%=dataPeriksa_ToEjs[i].id%></td>
+        <td><%=dataPeriksa_ToEjs[i].Pasien.name%></td>
+        <td><%=dataPeriksa_ToEjs[i].Dokter.name%></td>
+        <td><%=dataPeriksa_ToEjs[i].Diagnosis.penyakit%></td>
+        <td><%=dataPeriksa_ToEjs[i].tglperiksa.toDateString()%></td>
+        <td><%=dataPeriksa_ToEjs[i].catatandokter%></td>
+        <td><a href="/periksa/edit/<%=dataPeriksa_ToEjs[i].id%>">Edit</a> <a href="/periksa/delete/<%=dataPeriksa_ToEjs[i].id%>">Delete</a></td>
+      </tr>
+      <%}%>
+    </table>
+  </body>
+</html>

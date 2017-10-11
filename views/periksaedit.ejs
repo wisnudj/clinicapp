@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%=title%></title>
+  </head>
+  <body>
+    <h1><%=title%></h1>
+    <form action="/periksa/edit/<%=dataPeriksa_ToEjs.id%>" method="post">
+      <input type="input" name="PasienId" value="<%=dataPeriksa_ToEjs.PasienId%>">
+      <input type="input" name="DokterId" value="<%=dataPeriksa_ToEjs.DokterId%>">
+      <input type="date" name="tglperiksa" value="<%=dataPeriksa_ToEjs.date%>">
+
+      <input list="penyakit" name="DiagnosisId" value="<%=dataPeriksa_ToEjs.DiagnosisId%>">
+          <datalist id="penyakit">
+            <%for(var i = 0; i < dataDiagnosis_To_Ejs.length; i++){%>
+            <option value="<%=dataDiagnosis_To_Ejs[i].id%>"><%=dataDiagnosis_To_Ejs[i].penyakit%></option>
+            <%}%>
+          </datalist>
+          <input type="text" name="catatandokter" value="<%=dataPeriksa_ToEjs.catatandokter%>">
+        <input type="submit">
+    </form>
+  </body>
+</html>

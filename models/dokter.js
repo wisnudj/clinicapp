@@ -11,5 +11,11 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
+
+  Dokter.associate = (model) => {
+    Dokter.belongsToMany(model.Pasien, {through: 'Periksa'})
+    Dokter.belongsToMany(model.Diagnosis, {through: 'Periksa'})
+    Dokter.hasMany(model.Periksa)
+  }
   return Dokter;
 };
