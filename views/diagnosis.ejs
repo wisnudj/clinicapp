@@ -12,48 +12,40 @@
 <body>
 
   <div style="text-align:left; margin-bottom:25px;">
-        <H1 style="margin-bottom:13px;">All Users Data</H1>
+        <H1 style="margin-bottom:13px;">All Penyakit Data</H1>
         <!-- -->
       </div>
 
       <table class="table is-striped">
         <tr>
           <th>ID</th>
-          <th>USERNAME</th>
-          <th>PASSWORD</th>
-          <th>ROLE</th>
-          <th>SALT</th>
+          <th>PENYAKIT</th>
+          <th>ACTION</th>
+          <!-- <th>ROLE</th>
+          <th>SALT</th> -->
 
         </tr>
-        <% for(let data=0; data<data_UsersToEjs.length; data++) {%>
+        <% for(let data=0; data<data_DiagnosisToEjs.length; data++) {%>
           <tr>
             <th>
-              <%= data_UsersToEjs[data].id %>
+              <%= data_DiagnosisToEjs[data].id %>
             </th>
-            <td>
-              <%= data_UsersToEjs[data].username %>
-            </td>
-            <td>
-              <%= data_UsersToEjs[data].password %>
-            </td>
             <td style="color:#00d1b2;">
-              <%= data_UsersToEjs[data].role %>
+              <%= data_DiagnosisToEjs[data].penyakit %>
             </td>
-            <td>
-              <%= data_UsersToEjs[data].salt %>
-            </td>
+
 
               <th>
 
               </th>
               <td style="margin-left:-5px;">
-                <a class="button is-info is-outlined is-small" href='user/edit/<%=data_UsersToEjs[data].id%>'>
+                <a class="button is-info is-outlined is-small" href='diagnosis/edit/<%=data_DiagnosisToEjs[data].id%>'>
                   <span>Edit</span>
                   <span class="icon is-small">
                     <i class="fa fa-pencil"></i>
                   </span>
                 </a>
-                <a class="button is-danger is-outlined is-small" href="user/delete/<%=data_UsersToEjs[data].id%>" onclick="myFunction()">
+                <a class="button is-danger is-outlined is-small" href="diagnosis/delete/<%=data_DiagnosisToEjs[data].id%>" onclick="myFunction()">
                   <span>Delete</span>
                   <span class="icon is-small">
                     <i class="fa fa-times"></i>
@@ -65,7 +57,7 @@
       </table>
 
       <div style="text-align:left; margin-top:35px;">
-        <a class="button is-outlined" href='/user/add'>add User</a>
+        <a class="button is-outlined" href='/diagnosis/add'>add Penyakit</a>
       </div>
 
       <script>
