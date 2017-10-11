@@ -19,7 +19,7 @@
       </div>
 
         <div style="margin-top: 10%;">
-        <form action="/pasien/add" method="post">
+        <form action="/pasien/edit/<%=data_pasienToEjs.id%>" method="post">
           <div class="field">
             <label class="label">Full Name</label>
             <div class="control has-icons-left has-icons-right">
@@ -34,10 +34,8 @@
 							  <div class="control">
 							    <div class="select is-fullwidth">
 							      <select name="jeniskelamin">
-
-							        <option value="Pria">Pria</option>
-							         <option value="Wanita">Wanita</option>
-
+                      <option value="Pria">Pria</option>
+							        <option value="Wanita">Wanita</option>
 							      </select>
 							    </div>
 							  </div>

@@ -7,7 +7,27 @@
     border: 1px solid #e8e8e8;
     margin-right: 3%;
 }
+.kotak{
+  width : 20%;
+  height : 150px;
+  /*background-color: black;*/
+  margin : 10px;
+  text-align: center;
+  width: 20%;
+    height: 150px;
+    background-color: black;
+    margin: 10px;
+    text-align: center;
+    padding: 4%;
+    flex-basis: 0;
+    -webkit-box-flex: 1;
+    flex-grow: 1;
+    flex-shrink: 1;
+}
 
+.isi_kotak{
+  font-size: 53px
+}
 .content-body {
   margin: 0 auto;
     padding-top: 64px;

@@ -42,7 +42,7 @@
 
 
         <!-- right coloumn -->
-        <div class="column ">
+        <div style="margin-left: 18%;" class="column ">
           <div style="a:2px; text-align:left; margin-bottom:25px;">
             <% include assets/partials/menu-nav %>
             <!-- this content -->
@@ -60,8 +60,21 @@
                 <%for(var i = 0; i < data_pasienToEjs.length;i++) {%>
                 <tr>
                   <th><%=data_pasienToEjs[i].id%></th>
-                  <td>Dr. <%=data_pasienToEjs[i].name%></td>
-                  <td  style="color:#00d1b2;"><%=data_pasienToEjs[i].jeniskelamin%></td>
+                  <td><%=data_pasienToEjs[i].name%></td>
+                  <% gender = ''
+                  if(data_pasienToEjs[i].jeniskelamin === 'Pria'){
+                    gender = 'fa fa-mars'
+                  }else{
+                    gender = 'fa fa-venus'
+                  }%>
+                  <td  style="color:#00d1b2;">
+                    <span class="icon">
+                      <i class="<%=gender%>"></i>
+                    </span>
+                    <span>
+                      <%=data_pasienToEjs[i].jeniskelamin%>
+                    </span>
+                  </td>
                   <td><%=data_pasienToEjs[i].usia%></td>
                   <td><%=data_pasienToEjs[i].pekerjaan%></td>
                   <td><%=data_pasienToEjs[i].alamat%></td>
@@ -85,7 +98,7 @@
             </table>
 
             <div style="text-align:left; margin-top:35px;">
-             <a class="button is-outlined" href='/pasien/add'>add dokter</a>
+             <a class="button is-outlined" href='/pasien/add'>add pasien</a>
            </div>
 
 

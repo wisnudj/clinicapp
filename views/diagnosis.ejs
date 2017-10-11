@@ -42,19 +42,17 @@
 
 
         <!-- right coloumn -->
-        <div class="column ">
+        <div style="margin-left: 18%;" class="column ">
           <div style="a:2px; text-align:left; margin-bottom:25px;">
             <% include assets/partials/menu-nav %>
             <!-- this content -->
 
             <!-- table -->
-            <table class="table is-striped">
+            <table style="width:100%; margin-top:12px;" class="table is-striped">
         <tr>
           <th>ID</th>
           <th>PENYAKIT</th>
           <th>ACTION</th>
-          <!-- <th>ROLE</th>
-          <th>SALT</th> -->
 
         </tr>
         <% for(let data=0; data<data_DiagnosisToEjs.length; data++) {%>
@@ -66,10 +64,6 @@
               <%= data_DiagnosisToEjs[data].penyakit %>
             </td>
 
-
-              <th>
-
-              </th>
               <td style="margin-left:-5px;">
                 <a class="button is-info is-outlined is-small" href='diagnosis/edit/<%=data_DiagnosisToEjs[data].id%>'>
                   <span>Edit</span>

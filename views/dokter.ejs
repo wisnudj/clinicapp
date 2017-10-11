@@ -42,7 +42,7 @@
 
 
         <!-- right coloumn -->
-        <div class="column ">
+        <div style="margin-left: 18%;" class="column ">
           <div style="a:2px; text-align:left; margin-bottom:25px;">
             <% include assets/partials/menu-nav %>
             <!-- this content -->
@@ -62,7 +62,20 @@
                   <th><%=data_DokterToEjs[i].id%></th>
                   <td>Dr. <%=data_DokterToEjs[i].name%></td>
                   <td  style="color:#00d1b2;"><%=data_DokterToEjs[i].spesialis%></td>
-                  <td><%=data_DokterToEjs[i].jeniskelamin%></td>
+                  <% gender = ''
+                  if(data_DokterToEjs[i].jeniskelamin === 'Pria'){
+                    gender = 'fa fa-mars'
+                  }else{
+                    gender = 'fa fa-venus'
+                  }%>
+                  <td  style="color:#00d1b2;">
+                    <span class="icon">
+                      <i class="<%=gender%>"></i>
+                    </span>
+                    <span>
+                      <%=data_DokterToEjs[i].jeniskelamin%>
+                    </span>
+                  </td>
 
                   <td style="margin-left:-5px;">
                     <a class="button is-info is-outlined is-small" href='/dokter/edit/<%=data_DokterToEjs[i].id%>'>
