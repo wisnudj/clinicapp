@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title><%=title%></title>
+  </head>
+  <body>
+    <h1><%=title%></h1>
+    <table>
+      <tr>
+        <th>id</th>
+        <th>name</th>
+        <th>jenis kelamin</th>
+        <th>usia</th>
+        <th>pekerjaan</th>
+        <th>alamat</th>
+      </tr>
+      <%for(var i = 0; i < data_pasienToEjs.length; i++) {%>
+        <tr>
+          <td><%=data_pasienToEjs[i].id%></td>
+          <td><%=data_pasienToEjs[i].name%></td>
+          <td><%=data_pasienToEjs[i].jeniskelamin%></td>
+          <td><%=data_pasienToEjs[i].usia%></td>
+          <td><%=data_pasienToEjs[i].pekerjaan%></td>
+          <td><%=data_pasienToEjs[i].alamat%></td>
+          <td><a href="/pasien/edit/<%=data_pasienToEjs[i].id%>">edit</a></td>
+          <td><a href="/pasien/delete/<%=data_pasienToEjs[i].id%>">delete</a></td>
+        </tr>
+      <%}%>
+    </table>
+  </body>
+</html>

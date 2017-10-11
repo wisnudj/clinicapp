@@ -13,9 +13,16 @@
         <th>spesialis</th>
         <th>jenis kelamin</th>
       </tr>
+      <%for(var i = 0; i < data_DokterToEjs.length;i++) {%>
       <tr>
-        <td></td>
+        <td><%=data_DokterToEjs[i].id%></td>
+        <td><%=data_DokterToEjs[i].name%></td>
+        <td><%=data_DokterToEjs[i].spesialis%></td>
+        <td><%=data_DokterToEjs[i].jeniskelamin%></td>
+        <td><a href="/dokter/edit/<%=data_DokterToEjs[i].id%>">edit</a></td>
+        <td><a href="/dokter/delete/<%=data_DokterToEjs[i].id%>">delete</a></td>
       </tr>
+      <%}%>
     </table>
   </body>
 </html>
