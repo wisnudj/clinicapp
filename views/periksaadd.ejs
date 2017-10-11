@@ -9,10 +9,17 @@
     <form action="" method="post">
       <input type="input" name="PasienId" placeholder="PasienId">
       <input type="input" name="DokterId" placeholder="DokterId">
-      <input type="input" name="DiagnosisId" placeholder="DiagnosisId">
       <input type="date" name="tglperiksa" placeholder="tglperiksa">
-      <input type="text" name="catatandokter" placeholder="catatandokter">
-      <input type="submit" value="submit">
+
+        <input list="penyakit" name="DiagnosisId">
+          <datalist id="penyakit">
+            <%for(var i = 0; i < dataDiagnosis.length; i++){%>
+            <option value="<%=dataDiagnosis[i].id%>"><%=dataDiagnosis[i].penyakit%></option>
+            <%}%>
+          </datalist>
+
+          <input type="text" name="catatandokter" placeholder="catatandokter">
+        <input type="submit">
     </form>
   </body>
 </html>

@@ -9,20 +9,22 @@
     <table>
       <tr>
         <th>id</th>
-        <th>id Pasien</th>
-        <th>id dokter</th>
+        <th>Nama Pasien</th>
+        <th>Nama Dokter</th>
         <th>diagnosis</th>
         <th>tgl periksa</th>
         <th>catatan dokter</th>
+        <th>Action</th>
       </tr>
       <%for(var i = 0; i < dataPeriksa_ToEjs.length; i++) {%>
       <tr>
         <td><%=dataPeriksa_ToEjs[i].id%></td>
-        <td><%=dataPeriksa_ToEjs[i].PasienId%></td>
-        <td><%=dataPeriksa_ToEjs[i].DokterId%></td>
-        <td><%=dataPeriksa_ToEjs[i].DiagnosisId%></td>
-        <td><%=dataPeriksa_ToEjs[i].tglperiksa%></td>
+        <td><%=dataPeriksa_ToEjs[i].Pasien.name%></td>
+        <td><%=dataPeriksa_ToEjs[i].Dokter.name%></td>
+        <td><%=dataPeriksa_ToEjs[i].Diagnosis.penyakit%></td>
+        <td><%=dataPeriksa_ToEjs[i].tglperiksa.toDateString()%></td>
         <td><%=dataPeriksa_ToEjs[i].catatandokter%></td>
+        <td><a href="/periksa/edit/<%=dataPeriksa_ToEjs[i].id%>">Edit</a> <a href="/periksa/delete/<%=dataPeriksa_ToEjs[i].id%>">Delete</a></td>
       </tr>
       <%}%>
     </table>
