@@ -5,6 +5,7 @@ let model = require('../models');
 // Read Data Pasien url: /pasien
 router.get('/', (req, res) => {
   model.Pasien.findAll().then((data) => {
+    console.log(data);
     res.render('pasien', {title: 'Daftar Pasien', data_pasienToEjs: data})
   })
 })
@@ -47,7 +48,19 @@ router.get('/riwayat/:id', (req, res) => {
     //res.send(data)
     res.render('riwayat', {data: data})
   })
+
 })
+
+
+router.get('/search', (req, res) => {
+  model.Pasien.findAll({
+    where: {'$name$': {$iLike: '%'+req.query.name+'%'}}
+  }).then((data) => {
+    res.render('searchpasien', {data: data})
+  })
+})
+
+
 
 
 module.exports = router;

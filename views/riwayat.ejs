@@ -6,6 +6,7 @@
   </head>
   <body>
     <h1>Riwayat Pasien</h1>
+    <%if(data.length > 0) {%>
     <p>Nama: <%=data[0].Pasien.name%></p>
     <p>Jenis Kelamin: <%=data[0].Pasien.jeniskelamin%></p>
     <p>Usia: <%=data[0].Pasien.usia%></p>
@@ -24,6 +25,9 @@
         <td><%=data[i].catatandokter%></td>
       </tr>
       <%}%>
+      <%} else {%>
+        <p>Belum ada data</p>
+        <%}%>
     </table>
   </body>
 </html>
