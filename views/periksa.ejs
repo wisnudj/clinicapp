@@ -40,7 +40,10 @@
 
 
 		<div id="content">
-      <% include assets/partials/menu-nav %>
+      <div style="a:2px; text-align:left; margin-bottom:25px;">
+        <h1 style=" color: black; font-size:36px; margin-bottom:13px;">All Exam Data</h1>
+        <% include assets/partials/menu-nav %>
+      </div>
       <!-- this content -->
       <!-- table -->
       <table style="width:100%; margin-top:12px;" class="table is-striped">
@@ -63,7 +66,7 @@
             <td><%=dataPeriksa_ToEjs[i].catatandokter%></td>
 
             <td style="margin-left:-5px;">
-              <a class="button is-info is-outlined is-small" href='/pasien/edit/<%=data_pasienToEjs[i].id%>'>
+              <a class="button is-info is-outlined is-small" href='/pasien/edit/<%=dataPeriksa_ToEjs[i].id%>'>
               <span class="icon is-small">
                 <i class="fa fa-pencil"></i>
               </span>
@@ -81,7 +84,7 @@
       </table>
 
       <div style="text-align:left; margin-top:35px;">
-       <a class="button is-outlined" href='/pasien/add'>add pasien</a>
+       <a class="button is-outlined" href='/periksa/add'>add Exam</a>
      </div>
       <!-- this content -->
 		</div>
