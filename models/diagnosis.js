@@ -9,5 +9,12 @@ module.exports = (sequelize, DataTypes) => {
       }
     }
   });
+
+  Diagnosis.associate = (model) => {
+    Diagnosis.belongsToMany(model.Dokter, {through: 'Periksa'})
+    Diagnosis.belongsToMany(model.Pasien, {through: 'Periksa'})
+    Diagnosis.hasMany(model.Periksa)
+  }
+
   return Diagnosis;
 };
