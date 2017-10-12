@@ -104,5 +104,79 @@
 	</footer>
     <% include assets/partials/sticky %>
 
+            <!-- table -->
+            <table style="width:100%; margin-top:12px;" class="table is-striped">
+              <tr>
+                <th><abbr title="Position">ID</abbr></th>
+                <th>NAME</th>
+                <th>GENDER</th>
+                <th>USIA</th>
+                <th>PEKERJAAN</th>
+                <th>ADDRESS</th>
+              </tr>
+                <%for(var i = 0; i < data_pasienToEjs.length;i++) {%>
+                <tr>
+                  <th><%=data_pasienToEjs[i].id%></th>
+                  <td><%=data_pasienToEjs[i].name%></td>
+                  <% gender = ''
+                  if(data_pasienToEjs[i].jeniskelamin === 'Pria'){
+                    gender = 'fa fa-mars'
+                  }else{
+                    gender = 'fa fa-venus'
+                  }%>
+                  <td  style="color:#00d1b2;">
+                    <span class="icon">
+                      <i class="<%=gender%>"></i>
+                    </span>
+                    <span>
+                      <%=data_pasienToEjs[i].jeniskelamin%>
+                    </span>
+                  </td>
+                  <td><%=data_pasienToEjs[i].usia%></td>
+                  <td><%=data_pasienToEjs[i].pekerjaan%></td>
+                  <td><%=data_pasienToEjs[i].alamat%></td>
+
+                  <td style="margin-left:-5px;">
+                    <a class="button is-info is-outlined is-small" href='/pasien/edit/<%=data_pasienToEjs[i].id%>'>
+                    <span class="icon is-small">
+                      <i class="fa fa-pencil"></i>
+                    </span>
+                    <span>Edit</span>
+                    </a>
+                    <a onclick="myFunction()" class="button is-danger is-outlined is-small" href="/pasien/delete/<%=data_pasienToEjs[i].id%>">
+                    <span class="icon is-small">
+                      <i class="fa fa-times"></i>
+                    </span>
+                    <span>Delete</span>
+                    </a>
+                    <a href="/pasien/riwayat/<%=data_pasienToEjs[i].id%>">riwayat</a>
+                  </td>
+                </tr>
+                <%}%>
+            </table>
+
+            <div style="text-align:left; margin-top:35px;">
+             <a class="button is-outlined" href='/pasien/add'>add pasien</a>
+           </div>
+
+
+            <!-- this content -->
+          </div>
+        </div>
+      </div>
+      <!-- body-left-right -->
+
+  	</div>
+    <% include assets/partials/footer %>
+    <script>
+      function myFunction() {
+        confirm("are you sure?!");
+        // swal ( "Oops" ,  "Something went wrong!" ,  "error" )
+        swal({
+          icon: "success",
+        });
+      }
+    </script>
+
 </body>
 </html>
