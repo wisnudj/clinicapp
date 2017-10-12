@@ -149,11 +149,19 @@ a{
   }
 }
 
-@media screen and (min-width: 1024px){
+/*@media screen and (min-width: 1024px){
   .navbar-start>.navbar-item {
     color: #0a0a0a;
     display: none;
-}
+  }
+
+}*/
+
+@media screen and (min-width: 888px){
+
+  .nav-kanan{
+    display: none;
+  }
 }
 
 

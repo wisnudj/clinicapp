@@ -1,17 +1,65 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <form action="/pasien/search" method="get">
-      <input type="input" name="name" value="">
-      <input type="submit" value="submit">
-    </form>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../assets/style/bulma.min.css" type="text/css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../../assets/style/custom.css" type="text/css">
+  <link rel="stylesheet" href="../../assets/style/buefy.min.css">
+  <title></title>
+</head>
+<body>
+  <header>
+		<div class="container">
+			<% include assets/partials/top-nav-inside %>
+		</div>
+	</header>
+
+  <!-- hero -->
+    <section class="hero is-primary is-bold">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Welcome to Clinic Plus
+          </h1>
+          <h2 class="subtitle">
+            I hope you are having a great day!
+          </h2>
+        </div>
+      </div>
+    </section>
+
+	<div style="margin-top: 3%; margin-bottom: 3%;" class="container-cust">
+		<div id="sidebar">
+			<div class="sidebar__inner">
+				<% include assets/partials/menu-panel %>
+			</div>
+		</div>
+
+
+		<div id="content">
+      <div style="a:2px; text-align:left; margin-bottom:25px;">
+        <h1 style=" color: black; font-size:36px; margin-bottom:13px;">Search Pasien Data</h1>
+        <% include assets/partials/menu-nav %>
+      </div>
+      <!-- this content -->
+      <!-- table -->
+      <form action="/pasien/search" method="get">
+
+      <div class="field is-grouped">
+        <input class="input control is-expanded" placeholder="find pasien" type="input" name="name" value="">
+        <input class="control button is-primary" type="submit" value="Search">
+      </div>
+
+      <!-- <input type="input" name="name" value="">
+      <input type="submit" value="submit"> -->
+      </form>
+
 
     <%if(data.length > 0){%>
-      <table>
+      <table style="width:100%; margin-top:12px;" class="table is-striped">
         <tr>
           <th>ID</th>
           <th>NAME</th>
@@ -19,20 +67,63 @@
           <th>USIA</th>
           <th>PEKERJAAN</th>
           <th>ADDRESS</th>
+          <th>RIWAYAT</th>
         </tr>
       <%for(var i = 0; i < data.length; i++) {%>
         <tr>
           <td><%=data[i].id%></td>
-          <td><%=data[i].name%></td>
-          <td><%=data[i].jeniskelamin%></td>
+          <td style="color:#00d1b2;"><%=data[i].name%></td>
+          <% gender = ''
+          if(data[i].jeniskelamin === 'Pria'){
+            gender = 'fa fa-mars'
+          }else{
+            gender = 'fa fa-venus'
+          }%>
+          <td>
+            <span class="icon">
+              <i class="<%=gender%>"></i>
+            </span>
+            <span>
+              <%=data[i].jeniskelamin%>
+            </span>
+          </td>
           <td><%=data[i].usia%></td>
           <td><%=data[i].pekerjaan%></td>
           <td><%=data[i].alamat%></td>
+          <td style="margin-left:-5px;">
+            <a class="button is-success is-outlined is-small" href='/pasien/riwayat/<%=data[i].id%>'>
+            <span class="icon is-small">
+              <i class="fa fa-history"></i>
+            </span>
+            <span>Riwayat</span>
+            </a>
+          </td>
         </tr>
       <%}%>
     </table>
     <%} else {%>
-      <p>data tidak ditemukan</p>
+      <p>Data tidak ditemukan</p>
     <%}%>
-  </body>
+      <!-- this content -->
+		</div>
+	</div>
+
+	<footer>
+		 <% include assets/partials/footer %>
+	</footer>
+
+  <script src="../assets/js/myScripts.js"></script>
+  <script src="../assets/js/buefy-min.js"></script>
+  <script type="text/javascript" src="../assets/js/sticky-sidebar.js"></script>
+  <script type="text/javascript">
+
+    var a = new StickySidebar('#sidebar', {
+      topSpacing: 20,
+      bottomSpacing: 20,
+      containerSelector: '.container',
+      innerWrapperSelector: '.sidebar__inner'
+    });
+  </script>
+
+</body>
 </html>

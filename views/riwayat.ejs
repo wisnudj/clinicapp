@@ -1,33 +1,70 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <h1>Riwayat Pasien</h1>
-    <%if(data.length > 0) {%>
-    <p>Nama: <%=data[0].Pasien.name%></p>
-    <p>Jenis Kelamin: <%=data[0].Pasien.jeniskelamin%></p>
-    <p>Usia: <%=data[0].Pasien.usia%></p>
-    <table>
-      <tr>
-        <th>Tanggal</th>
-        <th>Dokter</th>
-        <th>Diagnosis</th>
-        <th>Catatan Dokter</th>
-      </tr>
-      <%for(var i = 0; i < data.length; i++) {%>
-      <tr>
-        <td><%=data[i].tglperiksa.toDateString()%></td>
-        <td><%=data[i].Dokter.name%></td>
-        <td><%=data[i].Diagnosis.penyakit%></td>
-        <td><%=data[i].catatandokter%></td>
-      </tr>
-      <%}%>
-      <%} else {%>
-        <p>Belum ada data</p>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../assets/style/bulma.min.css" type="text/css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../../assets/style/custom.css" type="text/css">
+  <title>Riwayat Pasien</title>
+</head>
+<body>
+
+  <div style="margin:auto; width: 50%;">
+      <!-- <H1 style="text-align: center;">ADD TEACHER</H1> -->
+      <%if(data.length > 0) {%>
+      <div style="margin-bottom:50px; text-align: center; margin-top:22px;">
+        <p style="" class="title is-2">Riwayat Pasien</p>
+        <% gender = ''
+        if(data[0].Pasien.jeniskelamin === 'Pria'){
+          gender = 'fa fa-mars'
+        }else{
+          gender = 'fa fa-venus'
+        }%>
+        <p class="subtitle is-5">- <span>Nama: <span style="font-weight: 900;"><%=data[0].Pasien.name%></span></span> |
+          <span>Gender: <span class="icon">
+              <i class="<%=gender%>"></i>
+            </span>
+            <span>
+              <%=data[0].Pasien.jeniskelamin%>
+            </span>
+          </span> | <span>Usia: <%=data[0].Pasien.usia%></span> - </p>
+      </div>
+
+      <div></div>
+
+
+      <table style="width:100%; margin-top:2px;" class="table is-striped">
+        <tr>
+          <th>Tanggal</th>
+          <th>Dokter</th>
+          <th>Diagnosis</th>
+          <th>Catatan Dokter</th>
+        </tr>
+        <%for(var i = 0; i < data.length; i++) {%>
+        <tr>
+          <td><%=data[i].tglperiksa.toDateString()%></td>
+          <td><%=data[i].Dokter.name%></td>
+          <td><%=data[i].Diagnosis.penyakit%></td>
+          <td><%=data[i].catatandokter%></td>
+        </tr>
         <%}%>
-    </table>
-  </body>
+        <%} else {%>
+          <div style="margin-bottom:50px; text-align: center; margin-top:22px;">
+            <p style="" class="title is-2">Riwayat Pasien</p>
+            <p style="font-weight: 900; font-size:23px; ">Belum ada data</p>
+          </div>
+          <%}%>
+      </table>
+
+
+
+      <div style="text-align: center;margin-top:5%;">
+        <a style="text-decoration: none;" href="/pasien">show all Pasien</a>
+      </div>
+    </div>
+
+
+</body>
 </html>
