@@ -1,32 +1,96 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title><%=title%></title>
-  </head>
-  <body>
-    <h1><%=title%></h1>
-    <table>
-      <tr>
-        <th>id</th>
-        <th>Nama Pasien</th>
-        <th>Nama Dokter</th>
-        <th>diagnosis</th>
-        <th>tgl periksa</th>
-        <th>catatan dokter</th>
-        <th>Action</th>
-      </tr>
-      <%for(var i = 0; i < dataPeriksa_ToEjs.length; i++) {%>
-      <tr>
-        <td><%=dataPeriksa_ToEjs[i].id%></td>
-        <td><%=dataPeriksa_ToEjs[i].Pasien.name%></td>
-        <td><%=dataPeriksa_ToEjs[i].Dokter.name%></td>
-        <td><%=dataPeriksa_ToEjs[i].Diagnosis.penyakit%></td>
-        <td><%=dataPeriksa_ToEjs[i].tglperiksa.toDateString()%></td>
-        <td><%=dataPeriksa_ToEjs[i].catatandokter%></td>
-        <td><a href="/periksa/edit/<%=dataPeriksa_ToEjs[i].id%>">Edit</a> <a href="/periksa/delete/<%=dataPeriksa_ToEjs[i].id%>">Delete</a></td>
-      </tr>
-      <%}%>
-    </table>
-  </body>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="assets/style/bulma.min.css" type="text/css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/style/custom.css" type="text/css">
+  <link rel="stylesheet" href="assets/style/buefy.min.css">
+  <title><%=title%></title>
+</head>
+<body>
+  <header>
+		<div class="container">
+			<% include assets/partials/top-nav %>
+		</div>
+	</header>
+
+  <!-- hero -->
+    <section class="hero is-primary is-bold">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            Welcome to Clinic Plus
+          </h1>
+          <h2 class="subtitle">
+            I hope you are having a great day!
+          </h2>
+        </div>
+      </div>
+    </section>
+
+	<div style="margin-top: 3%; margin-bottom: 3%;" class="container-cust">
+		<div id="sidebar">
+			<div class="sidebar__inner">
+				<% include assets/partials/menu-panel %>
+			</div>
+		</div>
+
+
+		<div id="content">
+      <% include assets/partials/menu-nav %>
+      <!-- this content -->
+      <!-- table -->
+      <table style="width:100%; margin-top:12px;" class="table is-striped">
+        <tr>
+          <th><abbr title="Position">ID</abbr></th>
+          <th>PASIEN</th>
+          <th>DOKTER</th>
+          <th>DIAGNOSA</th>
+          <th>TANGGAL PERIKSA</th>
+          <th>CATATAN DOKTER</th>
+          <th>ACTIONS</th>
+        </tr>
+          <%for(var i = 0; i < dataPeriksa_ToEjs.length;i++) {%>
+          <tr>
+            <th><%=dataPeriksa_ToEjs[i].id%></th>
+            <td><%=dataPeriksa_ToEjs[i].Pasien.name%></td>
+            <td  style="color:#00d1b2;"><%=dataPeriksa_ToEjs[i].Dokter.name%></td>
+            <td><%=dataPeriksa_ToEjs[i].Diagnosis.penyakit%></td>
+            <td><%=dataPeriksa_ToEjs[i].tglperiksa.toDateString()%></td>
+            <td><%=dataPeriksa_ToEjs[i].catatandokter%></td>
+
+            <td style="margin-left:-5px;">
+              <a class="button is-info is-outlined is-small" href='/pasien/edit/<%=data_pasienToEjs[i].id%>'>
+              <span class="icon is-small">
+                <i class="fa fa-pencil"></i>
+              </span>
+              <span>Edit</span>
+              </a>
+              <a onclick="myFunction()" class="button is-danger is-outlined is-small" href="/periksa/edit/<%=dataPeriksa_ToEjs[i].id%>">
+              <span class="icon is-small">
+                <i class="fa fa-times"></i>
+              </span>
+              <span>Delete</span>
+              </a>
+            </td>
+          </tr>
+          <%}%>
+      </table>
+
+      <div style="text-align:left; margin-top:35px;">
+       <a class="button is-outlined" href='/pasien/add'>add pasien</a>
+     </div>
+      <!-- this content -->
+		</div>
+	</div>
+
+	<footer>
+		 <% include assets/partials/footer %>
+	</footer>
+    <% include assets/partials/sticky %>
+
+</body>
 </html>

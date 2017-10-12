@@ -7,6 +7,10 @@
     border: 1px solid #e8e8e8;
     margin-right: 3%;
 }
+
+.hero-color{
+  background-image: linear-gradient(141deg,#0ba6e5,#0ba6e5 31%,#35dac6);
+}
 .kotak{
   width : 20%;
   height : 150px;
@@ -139,3 +143,67 @@ a{
     display: none;
   }
 }
+
+/*-----------------------*/
+*,
+*:before,
+*:after{
+  box-sizing: border-box;
+}
+
+body{
+  font-family: Arial;
+}
+
+header{
+  color: #888;
+}
+
+header h1{
+  font-size: 30px;
+}
+
+.container-cust{
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+#content{
+  /*border: 2px dotted green;*/
+  padding: 18px;
+  margin-left: 275px;
+  min-height: 600px;
+  color: darkgrey;
+}
+
+#sidebar{
+  float: left;
+  width: 200px;
+  color: #ffbdbd;
+  will-change: min-height;
+}
+
+#sidebar .sidebar__inner{
+  /*border: 2px dotted red;*/
+  padding: 10px;
+  position: relative;
+  transform: translate(0, 0);
+  transform: translate3d(0, 0, 0);
+  will-change: position, transform;
+}
+
+/*footer{
+  height: 300px;
+  height: 85vh;
+  border: 2px dotted black;
+  margin-top: 20px;
+  text-align: center;
+  color: #8e8d8d;
+  background: rgba(0, 0, 0, 0.02);
+  line-height: 300px;
+  line-height: 95vh;
+}
+
+footer p{
+  margin: 0;
+}*/
