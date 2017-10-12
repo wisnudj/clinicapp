@@ -4,10 +4,7 @@ let model = require('../models')
 
 router.get('/', (req, res) => {
   model.Periksa.findAll({include: [model.Pasien, model.Dokter, model.Diagnosis]}).then((data) => {
-
-    var tanggal = data[0].tglperiksa.toDateString()
-    console.log(tanggal);
-    res.render('periksa', {title: 'Daftar Periksa Pasien', dataPeriksa_ToEjs: data, tanggal: tanggal})
+    res.render('periksa', {title: 'Daftar Periksa Pasien', dataPeriksa_ToEjs: data})
   })
 })
 
