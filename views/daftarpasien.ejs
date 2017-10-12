@@ -5,6 +5,7 @@
     <title></title>
   </head>
   <body>
+    <%if(data.length > 0) {%>
     <p>Nama Penyakit: <%=data[0].Diagnosis.penyakit%></p>
     <table>
       <tr>
@@ -22,6 +23,9 @@
           <td><%=data[i].tglperiksa.toDateString()%></td>
           <td><%=data[i].catatandokter%></td>
         </tr>
+      <%}%>
+      <%} else {%>
+        <p>Belum ada pasien</p>
       <%}%>
     </table>
   </body>
