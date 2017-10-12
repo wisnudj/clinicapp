@@ -42,5 +42,12 @@ router.get('/delete/:id', (req, res) => {
   })
 })
 
+router.get('/riwayat/:id', (req, res) => {
+  model.Periksa.findAll({include:[model.Pasien, model.Diagnosis, model.Dokter], where:{PasienId:req.params.id}}).then((data) => {
+    //res.send(data)
+    res.render('riwayat', {data: data})
+  })
+})
+
 
 module.exports = router;

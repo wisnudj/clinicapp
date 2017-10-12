@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Riwayat Pasien</h1>
+    <p>Nama: <%=data[0].Pasien.name%></p>
+    <p>Jenis Kelamin: <%=data[0].Pasien.jeniskelamin%></p>
+    <p>Usia: <%=data[0].Pasien.usia%></p>
+    <table>
+      <tr>
+        <th>Tanggal</th>
+        <th>Dokter</th>
+        <th>Diagnosis</th>
+        <th>Catatan Dokter</th>
+      </tr>
+      <%for(var i = 0; i < data.length; i++) {%>
+      <tr>
+        <td><%=data[i].tglperiksa.toDateString()%></td>
+        <td><%=data[i].Dokter.name%></td>
+        <td><%=data[i].Diagnosis.penyakit%></td>
+        <td><%=data[i].catatandokter%></td>
+      </tr>
+      <%}%>
+    </table>
+  </body>
+</html>
