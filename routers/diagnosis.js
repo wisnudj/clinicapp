@@ -48,4 +48,19 @@ router.get('/delete/:id', (req,res) => {
   })
 })
 
+router.get('/search', (req, res) => {
+  model.Diagnosis.findAll({
+    where: {'$penyakit$': {$iLike: '%'+req.query.penyakit+'%'}}
+  }).then((data) => {
+    res.render('searchdiagnosis', {data: data})
+  })
+})
+
+router.get('/daftarpasien/:id', (req, res) => {
+  model.Periksa.findAll({include:[model.Pasien, model.Diagnosis, model.Dokter], where:{DiagnosisId:req.params.id}}).then((data) => {
+    //res.send(data)
+    res.render('daftarpasien', {data: data})
+  })
+})
+
 module.exports = router;

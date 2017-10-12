@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form action="/diagnosis/search" method="get">
+      <input type="input" name="penyakit" value="">
+      <input type="submit" value="submit">
+    </form>
+
+    <%if(data.length > 0){%>
+      <table>
+        <tr>
+          <th>ID</th>
+          <th>Penyakit</th>
+          <th></th>
+        </tr>
+      <%for(var i = 0; i < data.length; i++) {%>
+        <tr>
+          <td><%=data[i].id%></td>
+          <td><%=data[i].penyakit%></td>
+          <td><a href="/diagnosis/daftarpasien/<%=data[i].id%>">daftar pasien</a></td>
+        </tr>
+      <%}%>
+    </table>
+    <%} else {%>
+      <p>data tidak ditemukan</p>
+    <%}%>
+  </body>
+</html>
