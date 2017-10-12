@@ -2,6 +2,16 @@ let express = require('express');
 let router = express.Router();
 let model = require('../models');
 
+// SESSION
+router.use(function(req,res,next){
+	// console.log(req.session)
+	if(req.session && req.session.hasOwnProperty('username')){
+		next()
+	}else{
+		res.redirect('/login')
+	}
+})
+
 // --------------------------- * basic CRUD * ---//
 
 // CREATE
@@ -22,7 +32,11 @@ router.post('/add', (req,res) => {
 // READ
 router.get('/', (req,res) => {
   model.Diagnosis.findAll().then(data_Diagnosis => {
-    res.render('diagnosis', {title: 'Diagnosis CLinic App', data_DiagnosisToEjs:data_Diagnosis})
+    res.render('diagnosis', {
+			title: 'Diagnosis CLinic App',
+			data_DiagnosisToEjs:data_Diagnosis,
+			session:req.session
+		})
   })
 })
 
@@ -52,7 +66,7 @@ router.get('/search', (req, res) => {
   model.Diagnosis.findAll({
     where: {'$penyakit$': {$iLike: '%'+req.query.penyakit+'%'}}
   }).then((data) => {
-    res.render('searchdiagnosis', {data: data})
+    res.render('searchdiagnosis', {data: data, session:req.session})
   })
 })
 

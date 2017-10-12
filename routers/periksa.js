@@ -2,9 +2,24 @@ let express = require('express')
 let router = express.Router()
 let model = require('../models')
 
+
+// SESSION
+router.use(function(req,res,next){
+	// console.log(req.session)
+	if(req.session && req.session.hasOwnProperty('username')){
+		next()
+	}else{
+		res.redirect('/login')
+	}
+})
+
 router.get('/', (req, res) => {
   model.Periksa.findAll({include: [model.Pasien, model.Dokter, model.Diagnosis]}).then((data) => {
-    res.render('periksa', {title: 'Daftar Periksa Pasien', dataPeriksa_ToEjs: data})
+    res.render('periksa', {
+			title: 'Daftar Periksa Pasien',
+			dataPeriksa_ToEjs: data,
+			session:req.session
+		})
   })
 })
 

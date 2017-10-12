@@ -3,6 +3,17 @@ let router = express.Router();
 let model = require('../models');
 
 
+// SESSION
+router.use(function(req,res,next){
+	// console.log(req.session)
+	if(req.session && req.session.hasOwnProperty('username')){
+		next()
+	}else{
+		res.redirect('/login')
+	}
+})
+
+
 // --------------------------- * basic CRUD * ---//
 
 // CREATE
@@ -36,7 +47,11 @@ router.post('/add', (req,res)=>{
 router.get('/', (req,res)=>{
   model.User.findAll().then( data_Users =>{
     // res.send(data_Users)
-    res.render('user', {title:'Users Clinic App', data_UsersToEjs:data_Users})
+    res.render('user', {
+			title:'Users Clinic App',
+			data_UsersToEjs:data_Users,
+			session:req.session
+		})
   })
 })
 

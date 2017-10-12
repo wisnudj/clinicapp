@@ -1,41 +1,113 @@
-<!-- left coloumn -->
-<div style=" width: 250px; "class="column is-one-quarter panel-menu">
-
-  <aside style="padding: 10px;" class="menu">
-    <p class="menu-label">
-      General
-    </p>
-    <ul class="menu-list">
-      <li><a href="/">Dashboard</a></li>
-    </ul>
-    <p class="menu-label">
-      Administration
-    </p>
-    <ul class="menu-list">
-      <li><a href="/dokter">Dokter</a></li>
-      <li>
-        <a class="is-active">Pasien</a>
-        <ul>
-          <li><a href="/pasien">All Pasien</a></li>
-          <li><a href="/pasien/search">Search Pasien</a></li>
-          <li><a href="/pasien/add">Add a Pasien</a></li>
-        </ul>
-      </li>
-      <li><a href="/user">Users</a></li>
-    </ul>
-    <p class="menu-label">
-      Diagnoses
-    </p>
-    <ul class="menu-list">
-      <li><a href="/diagnosis">Diagnosis</a></li>
-      <li><a href="/diagnosis/search">Search Diagnosis</a></li>
-    </ul>
-    <p class="menu-label">
-      Examination
-    </p>
-    <ul class="menu-list">
-      <li><a href="/periksa">Periksa</a></li>
-    </ul>
-  </aside>
-
-</div>
+<%if(session.hasOwnProperty('role')){%>
+    <% if(session.role === 'dokter'){%>
+      <!-- left coloumn -->
+      <div style=" width: 250px; "class="column is-one-quarter panel-menu">
+        <aside style="padding: 10px;" class="menu">
+          <p class="menu-label">
+            General
+          </p>
+          <ul class="menu-list">
+            <li><a href="/">Dashboard</a></li>
+          </ul>
+          <p class="menu-label">
+            Administration
+          </p>
+          <ul class="menu-list">
+            <li><a href="/dokter">Dokter</a></li>
+            <li>
+              <a class="is-active">Pasien</a>
+              <ul>
+                <li><a href="/pasien">All Pasien</a></li>
+                <li><a href="/pasien/search">Search Pasien</a></li>
+                <li><a href="/pasien/add">Add a Pasien</a></li>
+              </ul>
+            </li>
+          </ul>
+          <p class="menu-label">
+            Diagnoses
+          </p>
+          <ul class="menu-list">
+            <li><a href="/diagnosis">Diagnosis</a></li>
+            <li><a href="/diagnosis/search">Search Diagnosis</a></li>
+          </ul>
+          <p class="menu-label">
+            Examination
+          </p>
+          <ul class="menu-list">
+            <li><a href="/periksa">Periksa</a></li>
+          </ul>
+        </aside>
+      </div>
+    <%}else if(session.role === 'administration'){%>
+      <!-- left coloumn -->
+      <div style=" width: 250px; "class="column is-one-quarter panel-menu">
+        <aside style="padding: 10px;" class="menu">
+          <p class="menu-label">
+            General
+          </p>
+          <ul class="menu-list">
+            <li><a href="/">Dashboard</a></li>
+          </ul>
+          <p class="menu-label">
+            Administration
+          </p>
+          <ul class="menu-list">
+            <li><a href="/dokter">Dokter</a></li>
+            <li>
+              <a class="is-active">Pasien</a>
+              <ul>
+                <li><a href="/pasien">All Pasien</a></li>
+                <li><a href="/pasien/search">Search Pasien</a></li>
+                <li><a href="/pasien/add">Add a Pasien</a></li>
+              </ul>
+            </li>
+          </ul>
+        </aside>
+      </div>
+    <%}else if(session.role === 'head_clinic'){%>
+      <!-- left coloumn -->
+      <div style=" width: 250px; "class="column is-one-quarter panel-menu">
+        <aside style="padding: 10px;" class="menu">
+          <p class="menu-label">
+            General
+          </p>
+          <ul class="menu-list">
+            <li><a href="/">Dashboard</a></li>
+          </ul>
+          <p class="menu-label">
+            Administration
+          </p>
+          <ul class="menu-list">
+            <li><a href="/dokter">Dokter</a></li>
+            <li>
+              <a class="is-active">Pasien</a>
+              <ul>
+                <li><a href="/pasien">All Pasien</a></li>
+                <li><a href="/pasien/search">Search Pasien</a></li>
+                <li><a href="/pasien/add">Add a Pasien</a></li>
+              </ul>
+            </li>
+          </ul>
+          <p class="menu-label">
+            Management
+          </p>
+          <ul class="menu-list">
+            <li><a href="/user">All Users</a></li>
+          </ul>
+          <p class="menu-label">
+            Diagnoses
+          </p>
+          <ul class="menu-list">
+            <li><a href="/diagnosis">Diagnosis</a></li>
+            <li><a href="/diagnosis/search">Search Diagnosis</a></li>
+          </ul>
+          <p class="menu-label">
+            Examination
+          </p>
+          <ul class="menu-list">
+            <li><a href="/periksa">Periksa</a></li>
+          </ul>
+        </aside>
+      </div>
+    <%}%>
+<%}%>

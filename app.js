@@ -15,6 +15,13 @@ app.set('view engine', 'ejs');
 //css
 app.use(express.static(__dirname+'/views'))
 
+// session
+app.use(session({
+    secret: 'livelyfox',
+    resave: false,
+    saveUninitialized: true
+}))
+
 //require routers
 var dokter = require('./routers/dokter')
 var pasien = require('./routers/pasien')
