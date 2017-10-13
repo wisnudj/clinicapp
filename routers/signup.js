@@ -37,7 +37,7 @@ router.post('/', (req,res)=>{
   model.User.create(
   {
   	username : req.body.signup_user_name,
-  	password : req.body.signup_password,
+  	password : password,
   	role     : req.body.signup_role,
   	salt     : secret
   }).then(()=>{
