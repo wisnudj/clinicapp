@@ -1,24 +1,83 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title><%=title%></title>
-  </head>
-  <body>
-    <h1><%=title%></h1>
-    <form action="/periksa/edit/<%=dataPeriksa_ToEjs.id%>" method="post">
-      <input type="input" name="PasienId" value="<%=dataPeriksa_ToEjs.PasienId%>">
-      <input type="input" name="DokterId" value="<%=dataPeriksa_ToEjs.DokterId%>">
-      <input type="date" name="tglperiksa" value="<%=dataPeriksa_ToEjs.date%>">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../assets/style/bulma.min.css" type="text/css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../../assets/style/custom.css" type="text/css">
+  <title>User</title>
+</head>
+<body>
 
-      <input list="penyakit" name="DiagnosisId" value="<%=dataPeriksa_ToEjs.DiagnosisId%>">
-          <datalist id="penyakit">
-            <%for(var i = 0; i < dataDiagnosis_To_Ejs.length; i++){%>
-            <option value="<%=dataDiagnosis_To_Ejs[i].id%>"><%=dataDiagnosis_To_Ejs[i].penyakit%></option>
-            <%}%>
-          </datalist>
-          <input type="text" name="catatandokter" value="<%=dataPeriksa_ToEjs.catatandokter%>">
-        <input type="submit">
-    </form>
-  </body>
+  <div style="margin:auto; width: 50%;">
+      <!-- <H1 style="text-align: center;">ADD TEACHER</H1> -->
+      <div style="text-align: center; margin-top:22px;">
+        <p class="title is-2">Edit Exam</p>
+        <p class="subtitle is-5">update name, specialis and jenis kelamin</p>
+      </div>
+
+        <div style="margin-top: 10%;">
+        <form action="/periksa/edit/<%=dataPeriksa_ToEjs.id%>" method="post">
+          <div class="field">
+            <label class="label">Pasien ID</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input is-medium" type="text" value="<%=dataPeriksa_ToEjs.PasienId%>" name="PasienId">
+              <span class="icon is-small is-left">
+                <i class="fa fa-user-md"></i>
+              </span>
+            </div>
+          </div>
+          <div class="field">
+            <label class="label">Dokter ID</label>
+            <div class="control has-icons-left has-icons-right">
+              <input class="input is-medium" type="text" value="<%=dataPeriksa_ToEjs.DokterId%>" name="DokterId">
+              <span class="icon is-small is-left">
+                <i class="fa fa-user-md"></i>
+              </span>
+            </div>
+          </div>
+          <!-- <input type="date" name="tglperiksa" value="<%=dataPeriksa_ToEjs.date%>"> -->
+          <div class="field">
+            <div class="control has-icons-left has-icons-right">
+              <input class="input is-medium" type="date" value="<%=dataPeriksa_ToEjs.date%>" placeholder="<%=dataPeriksa_ToEjs.date%>" name="tglperiksa">
+              <span class="icon is-small is-left">
+                <i class="fa fa-calendar"></i>
+              </span>
+            </div>
+          </div>
+
+          <!-- <input list="penyakit" name="DiagnosisId" value="<%=dataPeriksa_ToEjs.DiagnosisId%>"> -->
+
+          <div class="field">
+            <div class="control has-icons-left has-icons-right">
+              <input class="input is-medium" value="<%=dataPeriksa_ToEjs.DiagnosisId%>" list="penyakit" name="DiagnosisId">
+              <span class="icon is-small is-left">
+                <i class="fa fa-search"></i>
+              </span>
+              <datalist id="penyakit">
+                <%for(var i = 0; i < dataDiagnosis_To_Ejs.length; i++){%>
+                <option value="<%=dataDiagnosis_To_Ejs[i].id%>"><%=dataDiagnosis_To_Ejs[i].penyakit%></option>
+                <%}%>
+              </datalist>
+            </div>
+          </div>
+          <textarea class="textarea" placeholder="<%=dataPeriksa_ToEjs.catatandokter%>" name="catatandokter" ></textarea>
+          <!-- <input type="text" name="catatandokter" value="<%=dataPeriksa_ToEjs.catatandokter%>"> -->
+          <!-- <input type="submit"> -->
+
+          <div style="text-align: center; margin-top:33px;" class="control">
+            <input class="button is-success is-outlined is-medium" type="submit" value="Submit input">
+            <input class="button is-success is-outlined is-medium" type="reset" value="Reset input">
+          </div>
+        </form>
+
+      </div>
+      <div style="text-align: center;margin-top:5%;">
+        <a style="text-decoration: none;" href="/diagnosis">show all Exam</a>
+      </div>
+    </div>
+
+</body>
 </html>

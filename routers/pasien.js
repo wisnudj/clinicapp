@@ -2,11 +2,25 @@ let express = require('express');
 let router = express.Router();
 let model = require('../models');
 
+// SESSION
+router.use(function(req,res,next){
+	// console.log(req.session)
+	if(req.session && req.session.hasOwnProperty('username')){
+		next()
+	}else{
+		res.redirect('/login')
+	}
+})
+
 // Read Data Pasien url: /pasien
 router.get('/', (req, res) => {
   model.Pasien.findAll().then((data) => {
     console.log(data);
-    res.render('pasien', {title: 'Daftar Pasien', data_pasienToEjs: data})
+    res.render('pasien', {
+			title: 'Daftar Pasien',
+			data_pasienToEjs: data,
+			session:req.session
+		})
   })
 })
 
@@ -56,7 +70,7 @@ router.get('/search', (req, res) => {
   model.Pasien.findAll({
     where: {'$name$': {$iLike: '%'+req.query.name+'%'}}
   }).then((data) => {
-    res.render('searchpasien', {data: data})
+    res.render('searchpasien', {data: data, session:req.session})
   })
 })
 

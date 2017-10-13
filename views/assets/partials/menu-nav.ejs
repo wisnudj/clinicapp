@@ -1,6 +1,20 @@
-<a style="margin: 1px;" class="button is-primary is-small" href="/">Home</a>
-<a style="margin: 1px;" class="button is-info is-small" href="/dokter">Dokter</a>
-<a style="margin: 1px;" class="button is-success is-small" href="/pasien">Pasien</a>
-<a style="margin: 1px;" class="button is-warning is-small" href="/user">Users</a>
-<a style="margin: 1px;" class="button is-info is-small" href="/diagnosis">Diagnosis</a>
-<a style="margin: 1px;" class="button is-success is-small" href="/periksa">Exam</a>
+<%if(session.hasOwnProperty('role')){%>
+    <% if(session.role === 'dokter'){%>
+      <a style="margin: 1px;" class="button is-primary is-small" href="/">Home</a>
+      <a style="margin: 1px;" class="button is-info is-small" href="/dokter">Dokter</a>
+      <a style="margin: 1px;" class="button is-success is-small" href="/pasien">Pasien</a>
+      <a style="margin: 1px;" class="button is-info is-small" href="/diagnosis">Diagnosis</a>
+      <a style="margin: 1px;" class="button is-success is-small" href="/periksa">Exam</a>
+    <%}else if(session.role === 'administration'){%>
+      <a style="margin: 1px;" class="button is-primary is-small" href="/">Home</a>
+      <a style="margin: 1px;" class="button is-info is-small" href="/dokter">Dokter</a>
+      <a style="margin: 1px;" class="button is-success is-small" href="/pasien">Pasien</a>
+    <%}else if(session.role === 'head_clinic'){%>
+      <a style="margin: 1px;" class="button is-primary is-small" href="/">Home</a>
+      <a style="margin: 1px;" class="button is-info is-small" href="/dokter">Dokter</a>
+      <a style="margin: 1px;" class="button is-success is-small" href="/pasien">Pasien</a>
+      <a style="margin: 1px;" class="button is-warning is-small" href="/user">Users</a>
+      <a style="margin: 1px;" class="button is-info is-small" href="/diagnosis">Diagnosis</a>
+      <a style="margin: 1px;" class="button is-success is-small" href="/periksa">Exam</a>
+    <%}%>
+<%}%>

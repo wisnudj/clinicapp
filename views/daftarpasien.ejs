@@ -1,32 +1,66 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
-    <%if(data.length > 0) {%>
-    <p>Nama Penyakit: <%=data[0].Diagnosis.penyakit%></p>
-    <table>
-      <tr>
-        <th>PASIEN</th>
-        <th>DOKTER</th>
-        <th>DIAGNOSA</th>
-        <th>TANGGAL PERIKSA</th>
-        <th>CATATAN DOKTER</th>
-      </tr>
-      <%for(var i = 0; i < data.length; i++) {%>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="../../assets/style/bulma.min.css" type="text/css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="../../assets/style/custom.css" type="text/css">
+  <title>Daftar Penyakit</title>
+</head>
+<body>
+
+  <div style="margin:auto; width: 70%;">
+      <!-- <H1 style="text-align: center;">ADD TEACHER</H1> -->
+      <%if(data.length > 0) {%>
+      <div style="margin-bottom:50px; text-align: center; margin-top:22px;">
+        <p style="" class="title is-2">Daftar Pasien</p>
+        <p class="subtitle is-5">- <span>Dengan Penyakit:
+          <span style="font-weight: 900;"><%=data[0].Diagnosis.penyakit%></span>
+        </span> - </p>
+      </div>
+
+      <div></div>
+
+
+      <table style="width:100%; margin-top:2px;" class="table is-striped">
         <tr>
-          <td><%=data[i].Pasien.name%></td>
-          <td><%=data[i].Dokter.name%></td>
+          <th>NO</th>
+          <th style="color:#ff3860;">PASIEN</th>
+          <th>DOKTER</th>
+          <th>DIAGNOSA</th>
+          <th>TANGGAL PERIKSA</th>
+          <th>CATATAN DOKTER</th>
+        </tr>
+        <%for(var i = 0; i < data.length; i++) {%>
+        <tr>
+          <td><%=[i+1]%></td>
+          <td style="color:#ff3860;"><%=data[i].Pasien.name%></td>
+          <td>Dr. <%=data[i].Dokter.name%></td>
           <td><%=data[i].Diagnosis.penyakit%></td>
           <td><%=data[i].tglperiksa.toDateString()%></td>
           <td><%=data[i].catatandokter%></td>
         </tr>
-      <%}%>
-      <%} else {%>
-        <p>Belum ada pasien</p>
-      <%}%>
-    </table>
-  </body>
+        <%}%>
+        <%} else {%>
+          <div style="margin-bottom:50px; text-align: center; margin-top:22px;">
+            <p style="" class="title is-2">Daftar Pasien</p>
+            <p class="subtitle is-5">- <span>Dengan Penyakit:
+              <span style="font-weight: 900;"><%=data[0].Diagnosis.penyakit%></span>
+            </span> - </p>
+            <p style="font-weight: 900; font-size:23px; ">Belum ada data</p>
+          </div>
+          <%}%>
+      </table>
+
+
+
+      <div style="text-align: center;margin-top:5%;">
+        <a style="text-decoration: none;" href="/pasien">show all Pasien</a>
+      </div>
+    </div>
+
+
+</body>
 </html>
